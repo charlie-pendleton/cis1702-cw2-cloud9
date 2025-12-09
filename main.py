@@ -8,7 +8,8 @@ def welcome_menu():
     print("2 to View the database") 
     print("3 to update the database") 
     print("4 to Remove Items From The Database") 
-    print("5 to close and save")
+    print("5 to Search for an item")
+    print("6 to close and save")
     
     while correct_input == False and choice_from_menu !=5:
         try:
@@ -17,7 +18,7 @@ def welcome_menu():
             print("invalid choice, please enter a number")
             continue
         else:
-            if choice_from_menu > 5:
+            if choice_from_menu > 6:
                 print("your number is too large please try again")
             else:
                 
@@ -31,6 +32,8 @@ def welcome_menu():
                     update_data(stock)
                 elif choice_from_menu == 4:
                     remove_stock(stock)
+                elif choice_from_menu == 5:
+                    search_item(stock)
                 
     
     save_data(stock)
@@ -145,7 +148,22 @@ def remove_stock(stock):
 def check_stock_level(stock, quantity):
     pass
 
+def search_item(stock):
+    try:
+        item_id = input("Enter the ID of the item: ")
 
+        if item_id in stock:
+            item = stock[item_id]
+            print("\nItem found:")
+            print(f"ID: {item_id}")
+            print(f"Name: {item['name']}")
+            print(f"Quantity: {item['quantity']}")
+            print(f"Price: {item['price']}")
+        else:
+            print("Item not found.")
+
+    except Exception as e:
+        print("An error occurred while searching.")
 
 #works
 def save_data(stock):
