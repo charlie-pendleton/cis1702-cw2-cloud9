@@ -1,6 +1,6 @@
 import json
 
-#works
+#Welcome menu,allow user to edit,veiw and save the database
 def welcome_menu():
     correct_input = False
     choice_from_menu = 0
@@ -11,7 +11,7 @@ def welcome_menu():
     print("4 to Remove Items From The Database") 
     print("5 to Search for an item")
     print("6 to close and save")
-
+    #Ensures the program won't crash if the user inputs a number that is not an option 
     while correct_input == False and choice_from_menu != 6:
         try:
             choice_from_menu = int(input("enter your choice: "))
@@ -48,7 +48,7 @@ def load_data():
         print("save file is corrupted! Starting fresh")
         save_data()
 
-#works
+#User can add a new item to the database 
 def add_data(stock):
     name = input("Enter the name of the additional item: ")
     quantity = int(input("what is the quantity of the stock: "))
@@ -76,7 +76,7 @@ def update_data(stock):
     save_data(stock)
     return stock
             
-#works
+# Allows the user to to delete stock 
 def remove_stock(stock):
     id = input("Enter the ID of the item you wish to delete: ")
     del stock[id]
@@ -114,3 +114,4 @@ def save_data(stock):
 stock = load_data() or {}
 
 welcome_menu()
+
