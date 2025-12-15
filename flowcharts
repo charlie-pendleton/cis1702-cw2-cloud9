@@ -1,0 +1,175 @@
+MAIN_PROGRAM_FLOWCHART:
+
+(START)
+   |
+   |
+   v
+[Load data from database.json]
+   |
+   |
+   v
+{Does database exist and load correctly?}
+   |Yes                    |No
+   v                       v
+[Use loaded data]     [Create empty database]
+                           |
+                           |
+                           v
+                   [Save empty database]
+                           |
+                           |
+                           v
+<Display Main Menu>
+   |
+   |
+   v
+<Enter user choice>
+   |
+   |
+   v
+{Is choice between 1 and 6?}
+   |Yes                     |No
+   v                        v
+{Is choice = 6?}        <Display error message>
+   |Yes        |No            |
+   v           v              |
+[Save database]   {Choice = 1?}◄──────────────┘
+   |               |Yes   |No
+   v               v      v
+ (END)          [Add Item] {Choice = 2?}
+                           |Yes    |No
+                           v       v
+                       [View DB] {Choice = 3?}
+                                  |Yes   |No
+                                  v      v
+                              [Update Item] {Choice = 4?}
+                                             |Yes   |No
+                                             v      v
+                                         [Remove Item] {Choice = 5?}
+                                                        |Yes   |No
+                                                        v      v
+                                                    [Search Item] <Display error>
+                                                        |
+                                                        |
+                                                        v
+                                                <Return to menu>
+                                                        |
+                                                        |
+                                                        └──────────► <Display Main Menu>
+
+
+
+
+ADD_ITEM_FLOWCHART
+
+(START ADD)
+   |
+   |
+   v
+<Enter item name>
+   |
+   |
+   v
+<Enter quantity>
+   |
+   |
+   v
+<Enter price>
+   |
+   |
+   v
+<Enter item ID>
+   |
+   |
+   v
+{Are all inputs valid?}
+   |Yes                    |No
+   v                       v
+[Add item to database]   <Display error message>
+   |
+   |
+   v                       |
+[Save database]           |
+   | 
+   |
+   v                       |
+(Return to menu) ◄─────────┘
+
+
+UPDATE_ITEM_FLOWCHART
+
+(START UPDATE)
+   |
+   |
+   v
+<Enter item ID>
+   |
+   |
+   v
+{Does ID exist in database?}
+   |Yes                    |No
+   v                       v
+<Enter attribute to change> <Display "ID not found">
+   |
+   |
+   v                       |
+{Is attribute valid?}◄─────┘
+   |Yes      |No
+   v         v
+<Enter new value>   <Display error message>
+   |
+   |
+   v
+[Update item in database]
+   |
+   |
+   v
+[Save database]
+   |
+   |
+   v
+(Return to menu)
+
+
+REMOVE_ITEM_FLOWCHART
+
+(START REMOVE)
+   |
+   |
+   v
+<Enter item ID>
+   |
+   |
+   v
+{Does ID exist in database?}
+   |Yes                    |No
+   v                       v
+[Delete item]         <Display "ID not found">
+   |
+   |
+   v
+[Save database]
+   |
+   |
+   v
+(Return to menu)
+
+
+SEARCH_ITEM_FLOWCHART
+(START SEARCH)
+   |
+   |
+   v
+<Enter item ID>
+   |
+   |
+   v
+{Does ID exist in database?}
+   |Yes                    |No
+   v                       v
+<Display item details>  <Display "Item not found">
+   |
+   |
+   v
+(Return to menu)
+
