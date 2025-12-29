@@ -88,8 +88,14 @@ def add_data(stock):
     return stock
 
 def view_data():
-    my_project_data = load_data()
-    print(my_project_data) 
+    stock = load_data() or {}
+
+    if not stock:
+        print("Database is empty.")
+        return
+
+    print("\nID | Name       | Qty   | Price")
+    print("-" * 32)
     
 def update_data(stock):
     id_exists = False
