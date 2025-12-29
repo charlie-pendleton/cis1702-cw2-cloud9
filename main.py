@@ -1,5 +1,5 @@
 import json
-
+# 
 def welcome_menu():
     correct_input = False
     choice_from_menu = 0
@@ -22,8 +22,6 @@ def welcome_menu():
                 print("your number is too large please try again")
             else:
                 
-
-    
                 if choice_from_menu == 1:
                     add_data(stock)
                 elif choice_from_menu == 2:
@@ -34,8 +32,6 @@ def welcome_menu():
                     remove_stock(stock)
                 elif choice_from_menu == 5:
                     search_item(stock)
-                
-    
     save_data(stock)
 
 def load_data():
@@ -81,8 +77,6 @@ def add_data(stock):
         else:
             print("invalid set of data, please try again")
         
-
-    
     stock[id] = {"name":name, "quantity":quantity, "price":price, }
     save_data(stock)
     return stock
@@ -129,7 +123,6 @@ def update_data(stock):
     save_data(stock)
     return stock
             
-
 def remove_stock(stock):
     id_exists = False
     while id_exists != True:
@@ -150,7 +143,6 @@ def remove_stock(stock):
             print("ID not found reenter value")
     return stock
         
-
 def check_stock_level(stock, quantity):
     pass
 
