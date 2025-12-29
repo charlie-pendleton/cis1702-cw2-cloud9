@@ -61,9 +61,17 @@ def add_data(stock):
 
 #works
 def view_data():
-    my_project_data = load_data()
-    print(my_project_data) 
-    
+    stock = load_data() or {}
+
+    if not stock:
+        print("Database is empty.")
+        return
+
+    print("\nID | Name       | Qty   | Price")
+    print("-" * 32)
+
+    for i, v in stock.items():
+        print(f"{i}  | {v['name']:<10} | {v['quantity']:<5} | {v['price']}")
 #works
 def update_data(stock):
     item = input("Enter the ID of item: ")
@@ -114,4 +122,5 @@ def save_data(stock):
 stock = load_data() or {}
 
 welcome_menu()
+
 
